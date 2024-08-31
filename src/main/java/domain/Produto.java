@@ -13,7 +13,9 @@ import java.math.BigDecimal;
 @AllArgsConstructor
 @NamedQueries({
         @NamedQuery(name = "produto.getAll", query = "select p from Produto p"),
-        @NamedQuery(name = "produto.byPrice", query = "select p from Produto p where p.preco > :preco")
+        @NamedQuery(name = "produto.byPrice", query = "select p from Produto p where p.preco > :preco"),
+        @NamedQuery(name = "produto.byName", query = "select p from Produto p where p.nome = :nome"),
+        @NamedQuery(name = "produto.byNameLike", query = "select p from Produto p where p.nome like :nome")
 })
 public class Produto {
 
@@ -28,5 +30,7 @@ public class Produto {
     private String descricao;
     private String categoria;
     private Boolean disponivel;
+//    @ManyToOne
+//    private Cardapio cardapio;
 
 }

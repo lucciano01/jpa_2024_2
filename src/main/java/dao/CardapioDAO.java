@@ -18,7 +18,7 @@ public class CardapioDAO {
         jpaUtil.getEntityManager().close();
     }
     public void update(Cardapio cardapio){
-       // jpaUtil.getEntityManager().getTransaction().begin();
+        //jpaUtil.getEntityManager().getTransaction().begin();
         jpaUtil.getEntityManager().merge(cardapio);
         jpaUtil.getEntityManager().getTransaction().commit();
         jpaUtil.getEntityManager().close();

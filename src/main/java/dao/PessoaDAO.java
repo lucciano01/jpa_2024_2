@@ -17,4 +17,13 @@ public class PessoaDAO {
         jpaUtil.getEntityManager().getTransaction().commit();
         jpaUtil.getEntityManager().close();
     }
+
+    public Pessoa findById(Long id){
+        jpaUtil.getEntityManager().getTransaction().begin();
+        return jpaUtil.getEntityManager().find(Pessoa.class, id);
+    }
+
+    public void closeEntityManager(){
+        jpaUtil.getEntityManager().close();
+    }
 }

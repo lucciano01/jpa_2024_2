@@ -23,6 +23,14 @@ public class ProdutoDAO {
        // jpaUtil.getEntityManager().close();
     }
 
+    public Produto findById(Long id){
+        jpaUtil.getEntityManager().getTransaction().begin();
+        var produto = jpaUtil.getEntityManager().find(Produto.class, id);
+        return produto;
+        // jpaUtil.getEntityManager().getTransaction().commit();
+        // jpaUtil.getEntityManager().close();
+    }
+
     public Produto produtoById(Long id){
         jpaUtil.getEntityManager().getTransaction().begin();
         var produto = jpaUtil.getEntityManager()
@@ -33,7 +41,7 @@ public class ProdutoDAO {
     public List<Produto> getAllProdutos(){
 
         //utilizando jpql
-        jpaUtil.getEntityManager().getTransaction().begin();
+      //  jpaUtil.getEntityManager().getTransaction().begin();
        // String jpql = "select p from Produto p";
         var query = jpaUtil.getEntityManager()
                 .createNamedQuery("produto.getAll");
